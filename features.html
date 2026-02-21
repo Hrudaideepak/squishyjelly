@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Specs — Jelly Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/features.css">
+</head>
+<body class="loading">
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Accessing Archives...</div>
+    </div>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon" aria-hidden="true">🫧</span>
+            <span class="logo-text">Jelly Museum</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html" class="active">Features</a>
+            <a href="playground.html">Playground</a>
+            <a href="specimen-index.html">Archives</a>
+        </div>
+    </nav>
+
+    <main class="features-main">
+        <header class="features-header">
+            <span class="badge-tag">Access Level: Administrator</span>
+            <h1>Laboratory Diagnostics</h1>
+            <p>Real-time telemetry and spectral analysis of the museum's contained specimens.</p>
+        </header>
+
+        <!-- Global System Metrics -->
+        <section class="global-diagnostics">
+            <div class="diagnostic-item">
+                <span class="diag-label">Core Stability</span>
+                <div class="diag-value">
+                    <div class="diag-pulse"></div>
+                    <span>98.4% Nominal</span>
+                </div>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diag-label">Render Latency</span>
+                <div class="diag-value">0.82ms</div>
+            </div>
+            <div class="diagnostic-item">
+                <span class="diag-label">Neural Sync Rate</span>
+                <div class="diag-value">120 Hz</div>
+            </div>
+        </section>
+
+        <div class="features-grid">
+            <!-- Sphere -->
+            <div class="feature-card">
+                <div class="card-icon">SPEC-001 // SPHERE</div>
+                <h2>Sinusoidal Specimen</h2>
+                <p>Primary organic model. Exhibits rhythmic pulsing and soft-body deformation. Highly reactive to tactile input with localized vertex displacement.</p>
+                <div class="spec-graph">
+                    <svg width="100%" height="60" viewBox="0 0 350 60" preserveAspectRatio="none">
+                        <path d="M0,30 Q87,10 175,30 T350,30" stroke="var(--accent-blue)" stroke-width="2" fill="none" opacity="0.6"/>
+                        <path d="M0,30 Q87,50 175,30 T350,30" stroke="var(--accent-blue)" stroke-width="1" fill="none" opacity="0.2"/>
+                    </svg>
+                </div>
+                <ul class="spec-list">
+                    <li>Sensitivity <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div></li>
+                    <li>Audio Signature <span>Low-Fi Sine</span></li>
+                    <li>Deformation <span>0.42 Units</span></li>
+                </ul>
+            </div>
+
+            <!-- Cube -->
+            <div class="feature-card">
+                <div class="card-icon">SPEC-002 // CUBE</div>
+                <h2>Elastic Euclidean</h2>
+                <p>Edge-priority tension model. Linear vertex propagation creates rigid yet bouncy distortions. Optimized for high-frequency square wave audio conversion.</p>
+                <div class="spec-graph">
+                    <svg width="100%" height="60" viewBox="0 0 350 60" preserveAspectRatio="none">
+                        <polyline points="0,50 50,50 50,10 100,10 100,50 150,50 150,10 200,10 200,50 250,50 250,10 300,10 300,50 350,50" stroke="var(--accent-warm)" stroke-width="2" fill="none" opacity="0.4"/>
+                    </svg>
+                </div>
+                <ul class="spec-list">
+                    <li>Edge Tension <div class="progress-bar"><div class="progress-fill" style="width: 72%; background: var(--accent-warm);"></div></div></li>
+                    <li>Audio Signature <span>Square-Lead</span></li>
+                    <li>Hardness <span>High-Grade</span></li>
+                </ul>
+            </div>
+
+            <!-- Starfish -->
+            <div class="feature-card">
+                <div class="card-icon">SPEC-003 // STARFISH</div>
+                <h2>Neural Extrusion</h2>
+                <p>Multi-point spiky model. Utilizes node-priority raycasting to create organic extrusions that track interaction points with harmonic rippling.</p>
+                <div class="spec-graph">
+                    <svg width="100%" height="60" viewBox="0 0 350 60" preserveAspectRatio="none">
+                        <path d="M0,30 L20,10 L40,50 L60,10 L80,50 L100,30 L350,30" stroke="var(--accent-pink)" stroke-width="2" fill="none" opacity="0.6"/>
+                    </svg>
+                </div>
+                <ul class="spec-list">
+                    <li>Sync Level <div class="progress-bar"><div class="progress-fill" style="width: 94%; background: var(--accent-pink);"></div></div></li>
+                    <li>Audio Signature <span>Triangle</span></li>
+                    <li>Pointers <span>5 Active</span></li>
+                </ul>
+            </div>
+
+            <!-- Torus -->
+            <div class="feature-card">
+                <div class="card-icon">SPEC-004 // TORUS</div>
+                <h2>Centrifugal Ring</h2>
+                <p>Circular wave model. Simulates peristaltic rippling across a continuous perimeter. High interference patterns when multiple sensors are triggered.</p>
+                <div class="spec-graph">
+                    <svg width="100%" height="60" viewBox="0 0 350 60" preserveAspectRatio="none">
+                        <circle cx="175" cy="30" r="25" stroke="var(--accent-gold)" stroke-width="2" fill="none" opacity="0.4"/>
+                        <circle cx="175" cy="30" r="15" stroke="var(--accent-gold)" stroke-width="1" fill="none" opacity="0.2"/>
+                    </svg>
+                </div>
+                <ul class="spec-list">
+                    <li>Flow Rate <div class="progress-bar"><div class="progress-fill" style="width: 60%; background: var(--accent-gold);"></div></div></li>
+                    <li>Audio Signature <span>Sawtooth</span></li>
+                    <li>Loop <span>Continuous</span></li>
+                </ul>
+            </div>
+
+            <!-- Rhombus (Formerly Blob) -->
+            <div class="feature-card">
+                <div class="card-icon">SPEC-005 // RHOMBUS</div>
+                <h2>Crystalline-Organic Hybrid</h2>
+                <p>Sharp angular vertices that distort into fluid masses. Uses an Octahedral base geometry for diamond-like reflection patterns.</p>
+                <div class="spec-graph">
+                    <svg width="100%" height="60" viewBox="0 0 350 60" preserveAspectRatio="none">
+                        <path d="M50,40 L175,10 L300,40 L175,55 Z" stroke="var(--accent-warm)" stroke-width="2" fill="none" opacity="0.4"/>
+                    </svg>
+                </div>
+                <ul class="spec-list">
+                    <li>Vertex Purity <div class="progress-bar"><div class="progress-fill" style="width: 88%; background: var(--accent-warm);"></div></div></li>
+                    <li>Audio Signature <span>Multi-Harmonic</span></li>
+                    <li>Structure <span>Angular</span></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            let loaderRemoved = false;
+            const timeout = setTimeout(remove, 4000);
+            function remove() {
+                if (loaderRemoved) return;
+                loaderRemoved = true;
+                clearTimeout(timeout);
+                const l = document.getElementById('loader');
+                if (l) {
+                    l.style.opacity = '0';
+                    setTimeout(() => {
+                        l.style.display = 'none';
+                        document.body.classList.remove('loading');
+                    }, 500);
+                }
+            }
+            window.addEventListener('load', remove);
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log("Archives Page Ready");
+            });
+        })();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

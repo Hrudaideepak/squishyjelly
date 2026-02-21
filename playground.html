@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specimen Gallery — Jelly Museum</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/playground.css">
+</head>
+<body class="loading">
+
+    <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Cataloging Specimens...</div>
+    </div>
+
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon" aria-hidden="true">🫧</span>
+            <span class="logo-text">Jelly Museum</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="playground.html" class="active">Playground</a>
+            <a href="specimen-index.html">Archives</a>
+        </div>
+    </nav>
+
+    <main class="playground-main">
+        <header class="playground-header">
+            <div>Specimen Catalog</div>
+            <h1>Active Specimens</h1>
+            <p>Select a specimen to enter its isolated containment field.</p>
+        </header>
+
+        <div class="playground-grid">
+            <!-- Sphere -->
+            <a href="jellies/jelly-sphere.html" class="jelly-card">
+                <div class="scan-line"></div>
+                <div class="status-badge">Stable</div>
+                <div class="jelly-preview p-sphere"></div>
+                <h3>Specimen 01: Sphere</h3>
+                <p>Pulse & Wobble · Sinusoidal Distortion</p>
+                <div class="card-action">Initialize Link →</div>
+            </a>
+
+            <!-- Cube -->
+            <a href="jellies/jelly-cube.html" class="jelly-card">
+                <div class="scan-line"></div>
+                <div class="status-badge">Contained</div>
+                <div class="jelly-preview p-cube"></div>
+                <h3>Specimen 02: Cube</h3>
+                <p>Elastic Tension · Facet Distortion</p>
+                <div class="card-action">Initialize Link →</div>
+            </a>
+
+            <!-- Starfish -->
+            <a href="jellies/jelly-starfish.html" class="jelly-card">
+                <div class="scan-line"></div>
+                <div class="status-badge">Active</div>
+                <div class="jelly-preview p-starfish"></div>
+                <h3>Specimen 03: Starfish</h3>
+                <p>Spiky Extrusion · Multi-point Physics</p>
+                <div class="card-action">Initialize Link →</div>
+            </a>
+
+            <!-- Torus -->
+            <a href="jellies/jelly-torus.html" class="jelly-card">
+                <div class="scan-line"></div>
+                <div class="status-badge">Nominal</div>
+                <div class="jelly-preview p-torus"></div>
+                <h3>Specimen 04: Torus</h3>
+                <p>Wobble Ring · Harmonic Ripple</p>
+                <div class="card-action">Initialize Link →</div>
+            </a>
+
+            <!-- Rhombus (Formerly Blob) -->
+            <a href="jellies/jelly-blob.html" class="jelly-card">
+                <div class="scan-line"></div>
+                <div class="status-badge">Variable</div>
+                <div class="jelly-preview p-blob"></div>
+                <h3>Specimen 05: Rhombus</h3>
+                <p>Angular Mass · Octahedral Distortion</p>
+                <div class="card-action">Initialize Link →</div>
+            </a>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/three@0.145.0/build/three.min.js"></script>
+    <script>
+        (function() {
+            let loaderRemoved = false;
+            const timeout = setTimeout(remove, 4000);
+            
+            function remove() {
+                if (loaderRemoved) return;
+                loaderRemoved = true;
+                clearTimeout(timeout);
+                const l = document.getElementById('loader');
+                if (l) {
+                    l.style.opacity = '0';
+                    setTimeout(() => {
+                        l.style.display = 'none';
+                        document.body.classList.remove('loading');
+                    }, 500);
+                }
+            }
+            window.addEventListener('load', remove);
+            document.addEventListener('DOMContentLoaded', () => {
+                console.log("Gallery Page Ready");
+            });
+        })();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

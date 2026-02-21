@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specimen Index — Jelly Museum Archives</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .index-hero {
+        padding: 140px 40px 60px;
+        text-align: center;
+        background: linear-gradient(to bottom, #09091a, #050512);
+      }
+
+      .archive-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .specimen-card {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        transition: all var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .specimen-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--card-accent);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .card-num {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        letter-spacing: 0.2em;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .card-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .card-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 30px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-glass);
+      }
+
+      .stat-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .stat-label {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .stat-val {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--card-accent);
+      }
+
+      .card-desc {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .card-theme-sphere {
+        --card-accent: var(--accent-warm);
+      }
+      .card-theme-cube {
+        --card-accent: #88ffaa;
+      }
+      .card-theme-starfish {
+        --card-accent: #ff6b9d;
+      }
+      .card-theme-torus {
+        --card-accent: #aa88ff;
+      }
+      .card-theme-rhombus {
+        --card-accent: #ffcc66;
+      }
+
+      .btn-view {
+        width: 100%;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        .index-hero {
+          padding: 120px 20px 40px;
+        }
+        .archive-grid {
+          padding: 20px;
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .specimen-card {
+          padding: 30px 20px;
+        }
+        .hero-title {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .card-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="loading">
+    <div class="loader" id="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Accessing Ledger...</div>
+    </div>
+
+    <nav class="main-nav">
+      <div class="nav-logo">
+        <span aria-hidden="true">🫧</span> Jelly Museum
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="playground.html">Playground</a>
+        <a href="specimen-index.html" class="active">Archives</a>
+      </div>
+    </nav>
+
+    <header class="index-hero">
+      <div class="badge-tag">Classified Ledger</div>
+      <h1 class="hero-title">Specimen <span class="text-glow">Index</span></h1>
+      <p class="hero-sub">
+        Complete technical audit and behavioral analysis of all contained
+        entities.
+      </p>
+    </header>
+
+    <main class="archive-grid">
+      <!-- Sphere -->
+      <article class="specimen-card card-theme-sphere">
+        <span class="card-num">LOG // 001</span>
+        <h2 class="card-title">The Sphere</h2>
+        <p class="card-desc">
+          Our foundation specimen. A perfectly symmetrical organic mesh capable
+          of extreme compression and harmonic resonance.
+        </p>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-label">Hertz</span
+            ><span class="stat-val">440 Hz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Users</span
+            ><span class="stat-val">12,400</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sync Rate</span
+            ><span class="stat-val">98.2%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">FPS</span
+            ><span class="stat-val">60.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Touch Rate</span
+            ><span class="stat-val">12 ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Class</span
+            ><span class="stat-val">Alpha</span>
+          </div>
+        </div>
+        <a
+          href="jellies/jelly-sphere.html"
+          class="btn-pill btn-outline btn-view"
+          >Access Chamber</a
+        >
+      </article>
+
+      <!-- Cube -->
+      <article class="specimen-card card-theme-cube">
+        <span class="card-num">LOG // 002</span>
+        <h2 class="card-title">The Cube</h2>
+        <p class="card-desc">
+          Highly resistant geometry. Exhibits angular distortion patterns and
+          low-frequency rhythmic oscillations.
+        </p>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-label">Hertz</span
+            ><span class="stat-val">220 Hz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Users</span
+            ><span class="stat-val">8,200</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sync Rate</span
+            ><span class="stat-val">84.5%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">FPS</span
+            ><span class="stat-val">60.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Touch Rate</span
+            ><span class="stat-val">24 ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Class</span
+            ><span class="stat-val">Beta</span>
+          </div>
+        </div>
+        <a href="jellies/jelly-cube.html" class="btn-pill btn-outline btn-view"
+          >Access Chamber</a
+        >
+      </article>
+
+      <!-- Starfish -->
+      <article class="specimen-card card-theme-starfish">
+        <span class="card-num">LOG // 003</span>
+        <h2 class="card-title">The Starfish</h2>
+        <p class="card-desc">
+          Multi-lobe organic structure. Capable of complex decentralized motion
+          and high-pitched sonic feedback.
+        </p>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-label">Hertz</span
+            ><span class="stat-val">660 Hz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Users</span
+            ><span class="stat-val">24,100</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sync Rate</span
+            ><span class="stat-val">92.1%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">FPS</span
+            ><span class="stat-val">60.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Touch Rate</span
+            ><span class="stat-val">10 ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Class</span
+            ><span class="stat-val">Gamma</span>
+          </div>
+        </div>
+        <a
+          href="jellies/jelly-starfish.html"
+          class="btn-pill btn-outline btn-view"
+          >Access Chamber</a
+        >
+      </article>
+
+      <!-- Torus -->
+      <article class="specimen-card card-theme-torus">
+        <span class="card-num">LOG // 004</span>
+        <h2 class="card-title">The Torus</h2>
+        <p class="card-desc">
+          A continuous loop of energy. Exhibits circulating distortion waves and
+          void-center physics.
+        </p>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-label">Hertz</span
+            ><span class="stat-val">330 Hz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Users</span
+            ><span class="stat-val">15,800</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sync Rate</span
+            ><span class="stat-val">89.9%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">FPS</span
+            ><span class="stat-val">60.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Touch Rate</span
+            ><span class="stat-val">18 ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Class</span
+            ><span class="stat-val">Delta</span>
+          </div>
+        </div>
+        <a href="jellies/jelly-torus.html" class="btn-pill btn-outline btn-view"
+          >Access Chamber</a
+        >
+      </article>
+
+      <!-- Rhombus (Formerly Blob) -->
+      <article class="specimen-card card-theme-rhombus">
+        <span class="card-num">LOG // 005</span>
+        <h2 class="card-title">The Rhombus</h2>
+        <p class="card-desc">
+          Crystalline-organic hybrid. Sharp angular vertices that distort into
+          fluid masses under direct interaction.
+        </p>
+        <div class="card-stats">
+          <div class="stat-item">
+            <span class="stat-label">Hertz</span
+            ><span class="stat-val">550 Hz</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Users</span
+            ><span class="stat-val">19,200</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Sync Rate</span
+            ><span class="stat-val">95.6%</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">FPS</span
+            ><span class="stat-val">60.0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Touch Rate</span
+            ><span class="stat-val">15 ms</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Class</span
+            ><span class="stat-val">Epsilon</span>
+          </div>
+        </div>
+        <a href="jellies/jelly-blob.html" class="btn-pill btn-outline btn-view"
+          >Access Chamber</a
+        >
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Jelly Museum Archives. All specimen data is classified.</p>
+    </footer>
+
+    <script>
+      (function () {
+        window.addEventListener("load", () => {
+          const l = document.getElementById("loader");
+          l.style.opacity = "0";
+          setTimeout(() => {
+            l.style.display = "none";
+            document.body.classList.remove("loading");
+          }, 500);
+        });
+      })();
+    </script>
+  </body>
+</html>

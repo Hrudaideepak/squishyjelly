@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="description" content="Jelly Mesh — An interactive 3D physics experience. Touch it, squish it, pluck it. A living, reactive jelly world at your fingertips." />
+  <title>Jelly Mesh — Interactive 3D Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <style>
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="loading">
+
+  <div class="loader" id="loader" role="status" aria-live="polite">
+        <div class="loader-ring"></div>
+        <div class="loader-text">Initializing Physics...</div>
+    </div>
+
+  <div id="canvas-container"></div>
+
+  <nav class="main-nav">
+    <div class="nav-logo">
+      <span class="logo-icon" aria-hidden="true">🫧</span>
+      <span class="logo-text">Jelly Museum</span>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="playground.html">Playground</a>
+      <a href="specimen-index.html">Archives</a>
+      <a href="playground.html" class="btn-pill btn-primary">Enter Playground</a>
+    </div>
+  </nav>
+
+  <main class="hero">
+    <div class="hero-content">
+      <div class="badge-tag">Specimen Hub 01</div>
+      <h1 class="hero-title">Step into the <span class="text-glow">Living</span> Void.</h1>
+      <p class="hero-sub">
+        Explore a curated collection of reactive, organic entities. Each jelly responds to your presence with unique physics and synthesized soundscapes.
+      </p>
+      <div class="hero-btns">
+        <a href="playground.html" class="btn-pill btn-primary">Enter the Playground</a>
+        <a href="features.html" class="btn-pill btn-outline">Technical Specs</a>
+      </div>
+    </div>
+    
+    <div class="hero-visual">
+        <div class="glass-orb"></div>
+        <div class="orb-ring"></div>
+    </div>
+  </main>
+
+  <section class="quick-links">
+      <div class="section-label">Navigation Matrix</div>
+      <div class="links-grid">
+          <a href="playground.html" class="link-card">
+              <span>01</span>
+              <h3>The Playground</h3>
+          </a>
+          <a href="features.html" class="link-card">
+              <span>02</span>
+              <h3>Technical Archive</h3>
+          </a>
+          <a href="specimen-index.html" class="link-card">
+              <span>03</span>
+              <h3>Specimen Index</h3>
+          </a>
+      </div>
+  </section>
+
+  <!-- External Libraries (r145 for compatibility) -->
+  <script src="https://unpkg.com/three@0.145.0/build/three.min.js"></script>
+  
+  <!-- Landing Animation Script (Global) -->
+  <script>
+    (function() {
+      let loaderRemoved = false;
+      const loaderTimeout = setTimeout(removeLoader, 4000);
+
+      function removeLoader() {
+        if (loaderRemoved) return;
+        loaderRemoved = true;
+        clearTimeout(loaderTimeout);
+        const loreal = document.getElementById('loader');
+        if (loreal) {
+          loreal.style.opacity = '0';
+          setTimeout(() => {
+            loreal.style.display = 'none';
+            document.body.classList.remove('loading');
+          }, 500);
+        }
+      }
+
+      window.addEventListener('load', removeLoader);
+
+      function initThree() {
+        if (typeof THREE === 'undefined') {
+          console.error("THREE is not defined. Network may be restricted.");
+          removeLoader();
+          return;
+        }
+
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const width = container.clientWidth || window.innerWidth;
+        const height = container.clientHeight || window.innerHeight;
+        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ 
+          antialias: true, 
+          alpha: true,
+          powerPreference: 'high-performance'
+        });
+        
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(width, height);
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        container.appendChild(renderer.domElement);
+
+        const ringGeo = new THREE.TorusGeometry(4, 0.12, 24, 128);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0x55aaff, transparent: true, opacity: 0.3 });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        scene.add(ring);
+
+        camera.position.z = 8;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (!prefersReducedMotion) {
+            ring.rotation.x += 0.005;
+            ring.rotation.y += 0.01;
+          }
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+          const w = container.clientWidth || window.innerWidth;
+          const h = container.clientHeight || window.innerHeight;
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w, h);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', initThree);
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
